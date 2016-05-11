@@ -1,0 +1,21 @@
+dependencies:
+  override:
+    - npm install -g cordova
+test:
+  override:
+    # create the platform
+    - cordova platform add android
+    # build the application
+    - cordova build
+    # start the emulator
+    - emulator -avd circleci-android22 -no-audio -no-window:
+        background: true
+        parallel: true
+    # wait for it to have booted
+    - circle-android wait-for-boot
+    # deploy to the emulator
+    - cordova emulate android
+    # copy the build outputs to artifacts
+    - cp -r platforms/android/build/outputs $CIRCLE_ARTIFACTS
+    # take a screenshot
+    - adb shell screencap -p  | sed '/^\* daemon.* \*$/ d' | perl -pe 's/\x0D\x0A/\x0A/g' > $CIRCLE_TEST_REPORTS/screen-start.png

@@ -1,0 +1,25 @@
+{
+  "name": "sitemai",
+  "version": "0.0.1",
+  "description": "An empty Cordova application.",
+  "main": "www/js/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/peter17/app.git"
+  },
+  "keywords": [
+    "mobile",
+    "cordova"
+  ],
+  "author": "Peter Potrowl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/peter17/app/issues"
+  },
+  "homepage": "http://lesitemai.free.fr",
+  "devDependencies": {
+    "cordova": "6.1.1"
+  },
+  "dependencies": {
+  }
+}
